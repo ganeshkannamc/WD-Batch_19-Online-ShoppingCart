@@ -1,0 +1,14 @@
+.header-bar, .menu{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.header-bar{
+    justify-content: space-around;
+    background-color: aqua;
+}
+
+.menu>p{
+    margin: 5px;
+}
