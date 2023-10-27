@@ -1,5 +1,6 @@
 import './content.css'
 import DisplayProduct from './DisplayProduct'
+import Header from '../Head/Header'
 
 const ProductList = () => {
 
@@ -10,9 +11,12 @@ const ProductList = () => {
 ]
 
   return (
+    <>
+    
     <div className='products'>
         {products.map((itm,index) => <DisplayProduct key={index} item={itm} />)}
     </div>
+    </>
   )
 }
 

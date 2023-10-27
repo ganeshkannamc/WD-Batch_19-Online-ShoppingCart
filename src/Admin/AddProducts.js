@@ -1,6 +1,7 @@
-import React from "react";
+
 
 const AddProducts = () => {
+  
   return (
     <div className="m-3">
       <h1>Add items</h1>

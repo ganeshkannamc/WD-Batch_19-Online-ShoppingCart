@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
 
 const AllProducts = () => {
+  
   return (
     <div>
       <button className="btn btn-primary">Add new item</button>

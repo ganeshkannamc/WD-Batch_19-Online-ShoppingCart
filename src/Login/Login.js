@@ -1,14 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import DataProvider from "../Context/DataContext";
 
 const Login = () => {
-  const [manageLogin, setManageLogin] = useState({
-    username: "",
-    password: "",
-    role: "",
-    loginState: false,
-  });
+  let { setManageLogin, manageLogin } = useContext(DataProvider);
+  let navigatePage = useNavigate();
+  const validUsers = ["ganesh", "kanna", "ram", "sam"];
+
   function handleLogin() {
-    console.log(manageLogin);
+    let checkIfValidUser = validUsers.includes(manageLogin.username);
+
+    if (checkIfValidUser) {
+      setManageLogin((preValue) => ({ ...preValue, loginState: true }));
+      navigatePage("/products");
+    } else {
+      setManageLogin((preValue) => ({ ...preValue, loginState: false }));
+    }
   }
 
   return (
@@ -47,6 +55,8 @@ const Login = () => {
         <option value={1}>Admin</option>
       </select>
       <button onClick={handleLogin}>Login</button>
+
+      {!manageLogin.loginState && <h1>Enter the valid user</h1>}
     </div>
   );
 };
