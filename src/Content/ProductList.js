@@ -1,23 +1,19 @@
-import './content.css'
-import DisplayProduct from './DisplayProduct'
-import Header from '../Head/Header'
+import "./content.css";
+import DisplayProduct from "./DisplayProduct";
+import DataContext from "../Context/DataContext";
+import { useContext, useEffect } from "react";
 
 const ProductList = () => {
-
-    let products = [
-        {id:1,brand:'Samsung',name:'Flip',price:3000, description:"test message",cartCount:0,isAdded:false},
-        {id:2,brand:'Moto',name:'Razr',price:8000, description:"test message",cartCount:0,isAdded:false},
-        {id:3,brand:'Apple',name:'iPhone12',price:7000, description:"test message",cartCount:1,isAdded:false},
-]
+  let { feed } = useContext(DataContext);
+  console.log(feed);
 
   return (
-    <>
-    
-    <div className='products'>
-        {products.map((itm,index) => <DisplayProduct key={index} item={itm} />)}
+    <div className="products">
+      {feed && feed.map((itm, index) => (
+        <DisplayProduct key={index} item={itm} />
+      ))}
     </div>
-    </>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

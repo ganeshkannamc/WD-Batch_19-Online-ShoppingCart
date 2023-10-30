@@ -51,7 +51,7 @@ const Login = () => {
           }))
         }
       >
-        <option value={0}>Basic</option>
+        <option value={2}>Basic</option>
         <option value={1}>Admin</option>
       </select>
       <button onClick={handleLogin}>Login</button>

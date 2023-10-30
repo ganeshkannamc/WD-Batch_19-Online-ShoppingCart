@@ -9,9 +9,11 @@ import AddProducts from "./Admin/AddProducts";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import RouteMismatch from "./RouteMismatch";
-import Layout from "./Layout";
+import UserLayout from "./UserLayout";
+import AdminLayout from "./AdminLayout";
 import LoginLayout from "./LoginLayout";
 import RequireAuth from "./RequireAuth";
+import UserAuth from "./UserAuth";
 
 function App() {
   return (
@@ -24,12 +26,19 @@ function App() {
         </Route>
 
         <Route element={<RequireAuth />}>
-          <Route path="/" element={<Layout />}>
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/cart" element={<CartItems />} />
-            <Route path="/admin" element={<AllProducts />} />
-            <Route path="/admin/edit/:id" element={<EditProducts />} />
-            <Route path="/admin/add" element={<AddProducts />} />
+          <Route element={<UserAuth allowedRoles={[1]} />}>
+            <Route path="/" element={<AdminLayout />}>
+              <Route path="/admin" element={<AllProducts />} />
+              <Route path="/admin/edit/:id" element={<EditProducts />} />
+              <Route path="/admin/add" element={<AddProducts />} />
+            </Route>
+          </Route>
+
+          <Route element={<UserAuth allowedRoles={[1, 2]} />}>
+            <Route path="/" element={<UserLayout />}>
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/cart" element={<CartItems />} />
+            </Route>
           </Route>
         </Route>
 

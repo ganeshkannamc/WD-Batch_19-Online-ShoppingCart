@@ -2,9 +2,10 @@ import React from 'react'
 import Header from './Head/Header'
 import { Outlet } from 'react-router-dom'
 
-const Layout = () => {
+const AdminLayout = () => {
   return (
     <div>
+      <h1>This is admin view</h1>
         <Header />
         {/* Dynamic content */}
         <Outlet />
@@ -13,4 +14,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default AdminLayout
