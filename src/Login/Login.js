@@ -13,6 +13,11 @@ const Login = () => {
 
     if (checkIfValidUser) {
       setManageLogin((preValue) => ({ ...preValue, loginState: true }));
+      let obj = manageLogin
+      obj.loginState = true
+      localStorage.setItem("manageLogin", JSON.stringify(obj));
+      sessionStorage.setItem("manageLogin", JSON.stringify(obj));
+
       navigatePage("/products");
     } else {
       setManageLogin((preValue) => ({ ...preValue, loginState: false }));

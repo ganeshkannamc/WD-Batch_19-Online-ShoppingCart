@@ -25,6 +25,13 @@ const Header = () => {
             <li class="nav-item active m-2">
               <NavLink to="admin">Admin</NavLink>
             </li>
+            <li class="nav-item active m-2">
+              <NavLink to="login">
+                {/* <button onClick={() => localStorage.removeItem("manageLogin")}> */}
+                  Logout
+                {/* </button> */}
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>

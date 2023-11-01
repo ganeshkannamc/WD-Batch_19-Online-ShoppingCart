@@ -15,7 +15,7 @@ const AllProducts = () => {
 
   return (
     <div>
-      <button className="btn btn-primary">Add new item</button>
+      <button className="btn btn-primary" onClick={()=>pageNavigation('/admin/add')}>Add new item</button>
       <table className="table table-bordered">
         <tr>
           <th>Id</th>

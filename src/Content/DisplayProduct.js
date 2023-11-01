@@ -45,6 +45,7 @@ const DisplayProduct = ({ item }) => {
 
   return (
     <div className="display-item">
+      <img className="product-image" src={item.image} alt="Mobile image" />
       <p>{item.brand}</p>
       <p>{item.name}</p>
       <p>{item.price}</p>

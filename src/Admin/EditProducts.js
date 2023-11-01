@@ -11,6 +11,7 @@ const EditProducts = () => {
     name: "",
     price: "",
     description: "",
+    image:''
   });
   let { id } = useParams();
   console.log(id);
@@ -31,6 +32,7 @@ const EditProducts = () => {
         itm.name = editItem.name;
         itm.price = editItem.price;
         itm.description = editItem.description;
+        itm.image = editItem.image
       }
       return itm;
     });
@@ -67,6 +69,22 @@ const EditProducts = () => {
             id="name"
             placeholder="Product name"
             value={editItem.name}
+            onChange={handleChangeEditItm}
+          />
+        </div>
+      </div>
+
+      <div className="form-group row m-2">
+        <label for="product" className="col-sm-2 col-form-label">
+          Product image
+        </label>
+        <div className="col-sm-10">
+          <input
+            type="text"
+            className="form-control"
+            id="image"
+            placeholder="Product name"
+            value={editItem.image}
             onChange={handleChangeEditItm}
           />
         </div>
